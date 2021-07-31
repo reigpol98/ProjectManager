@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="register">
+    <h1>Student register</h1>
+    <br>
+    <form action="{{url_for('registers')}}" method="POST">
+        <div class="form-group">
+            <label for="input_niu">NIU</label>
+            <input type="number" class="form-control" name="niu" placeholder="Enter your NIU" required>
+        </div>
+        <div class="form-group">
+            <label for="input_password">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+            <label for="input_student_average_grade">Average grade</label>
+            <input type="number" class="form-control" name="average_grade" min="0" step=".01" placeholder="Average Grade" required>
+        </div>
+        <button class="btn btn-primary btn-block">Submit</button>
+    </form>
+</div>
+{% endblock %}

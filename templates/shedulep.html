@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block body%}
+
+<div class="register">
+    <h1>Professor register</h1>
+    <br>
+    <form action="{{url_for('shedulep')}}" method="POST">
+        <div class="form-group">
+            <label for="input_schedules">How many work schedules will be?</label>
+            <input type="number" min="0" class="form-control" name="shifts" placeholder="number schedules" required>
+        </div>
+        <div class="form-group">
+            <label for="input_schedule_day">Enter the shedule of the schedules</label>
+            <input type="date" class="form-control" name="schedule_day" required>
+        </div>
+        <div class="form-group">
+            <label for="input_schedule_hour">Enter the shedule of the schedules</label>
+            <input type="time" class="form-control" name="schedule_hour" required>
+        </div>
+        <button class="btn btn-primary btn-block">Submit</button>
+    </form>
+</div>
+{% endblock %}
