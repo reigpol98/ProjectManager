@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 22-07-2021 a las 15:18:04
+-- Tiempo de generación: 31-07-2021 a las 19:12:11
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.8
 
@@ -56,6 +56,13 @@ CREATE TABLE `professor` (
   `password` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `professor`
+--
+
+INSERT INTO `professor` (`id`, `niu`, `password`) VALUES
+(1, 23432, 'dfsd');
+
 -- --------------------------------------------------------
 
 --
@@ -64,8 +71,16 @@ CREATE TABLE `professor` (
 
 CREATE TABLE `schedule` (
   `id` int(11) NOT NULL,
-  `datetime` datetime NOT NULL
+  `date` date NOT NULL,
+  `time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `schedule`
+--
+
+INSERT INTO `schedule` (`id`, `date`, `time`) VALUES
+(1, '2021-07-31', '19:06:00');
 
 -- --------------------------------------------------------
 
@@ -79,6 +94,15 @@ CREATE TABLE `students` (
   `password` varchar(55) NOT NULL,
   `average_grade` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `students`
+--
+
+INSERT INTO `students` (`id`, `niu`, `password`, `average_grade`) VALUES
+(23, 4577315, 'pass', 9.9),
+(29, 1111111, 'dssa', 8),
+(30, 1111111, 'dssa', 8);
 
 --
 -- Índices para tablas volcadas
@@ -110,19 +134,19 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT de la tabla `professor`
 --
 ALTER TABLE `professor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
