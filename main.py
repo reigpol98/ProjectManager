@@ -51,16 +51,26 @@ def registerp():
         return render_template('registerp.html')
     return render_template('registerp.html')
 
-@app.route('/shedulep', methods=['POST', 'GET'])
-def shedulep():
+@app.route('/shedulepn', methods=['POST', 'GET'])
+def shedulepn():
     if request.method == 'POST':
+        nshedules = request.form['nshedules']
+        return render_template('shedulep.html', nshedules = int(nshedules))
+    return render_template('shedulepn.html')
+
+@app.route('/shedulep/<variable>', methods=['POST', 'GET'])
+def shedulep(variable):
+    if request.method == 'POST':
+        print(variable)
+        print(variable)
         schedule_day = request.form['schedule_day']
         schedule_hour = request.form['schedule_hour']
+        #print(schedule_day)
         cur = mysql.connection.cursor()
         cur.execute("INSERT INTO schedule (date, time) VALUES (%s, %s)", (schedule_day, schedule_hour))
         mysql.connection.commit()
         return render_template('shedulep.html')
-    return render_template('shedulep.html')
+    #return render_template('shedulep.html')
 
 
 # starting the app
