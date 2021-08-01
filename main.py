@@ -55,14 +55,17 @@ def registerp():
 def shedulepn():
     if request.method == 'POST':
         nshedules = request.form['nshedules']
-        return render_template('shedulep.html', nshedules = int(nshedules))
+        listshedules = list()
+        for i in range(int(nshedules)):
+            listshedules.append(i)
+        return render_template('shedulep.html', nshedules = listshedules)
     return render_template('shedulepn.html')
 
-@app.route('/shedulep/<variable>', methods=['POST', 'GET'])
-def shedulep(variable):
+@app.route('/shedulep/<nshedules>', methods=['POST', 'GET'])
+def shedulep(nshedules):
     if request.method == 'POST':
-        print(variable)
-        print(variable)
+        print(nshedules)
+        print(nshedules)
         schedule_day = request.form['schedule_day']
         schedule_hour = request.form['schedule_hour']
         #print(schedule_day)
